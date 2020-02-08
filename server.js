@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const messageValidatorMiddleware = (req, res, next) => {
-  if (req.body.message === "") {
+  if (req.body.message === "" || req.body.message !== req.body.message) {
     res.status(400).json({
       message: "Bad request"
     });
